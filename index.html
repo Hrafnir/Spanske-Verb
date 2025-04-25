@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maestro de Verbos - Spansk Verbtrener</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app-container">
+        <h1>Maestro de Verbos 🇪🇸</h1>
+
+        <!-- Navigasjonsknapper for seksjoner -->
+        <nav id="section-nav">
+            <button id="nav-practica" class="nav-button active">Práctica (Øving)</button>
+            <button id="nav-biblioteca" class="nav-button">Biblioteca (Bibliotek)</button>
+            <button id="nav-gramatica" class="nav-button">Gramática (Grammatikk)</button>
+        </nav>
+
+        <!-- Øvingsseksjon (Vises som standard) -->
+        <section id="seccion-practica" class="app-section">
+            <h2>Modo Práctica</h2>
+
+            <div id="tense-select-container">
+                <label for="tense-select">Velg tid å øve på:</label>
+                <select id="tense-select">
+                    <option value="random" selected>Tilfeldig Tid</option>
+                    <option value="presente">Kun Presente (Nåtid)</option>
+                    <option value="futuro">Kun Futuro (Fremtid)</option>
+                    <option value="perfecto">Kun Presente Perfecto (Perfektum)</option>
+                </select>
+            </div>
+
+            <p id="instruction">Bøy verbet i <strong id="current-tense-display"></strong>!</p>
+
+            <div id="verb-prompt">
+                <span id="pronombre"></span> (<span id="infinitivo"></span>)
+            </div>
+
+            <input type="text" id="answer-input" placeholder="Skriv bøyd form her..." autocomplete="off" lang="es">
+            <!-- lang="es" kan hjelpe med autokorrektur/ordbok på noen enheter -->
+
+            <button id="submit-button">Sjekk Svar</button>
+
+            <div id="feedback-area">
+                <!-- Tilbakemelding vises her -->
+            </div>
+
+            <button id="next-button" style="display: none;">Neste Verb →</button>
+
+            <!-- Info om det spesifikke verbet i øvingen -->
+            <div id="verb-info" style="display: none;">
+                <p><strong>Info om <span class="info-infinitivo"></span>:</strong> <span class="info-tipo"></span> verb.</p>
+                <p class="info-rule" style="display: none;">Husk: <span class="info-rule-text"></span></p>
+                <p class="info-perfecto-part" style="display: none;">Perfektum partisipp: <span class="info-participio"></span> (Bøyes med 'haber')</p>
+            </div>
+
+             <div id="score-area">
+                 Poeng: <span id="score">0</span> | Riktige på rad: <span id="streak">0</span> 🔥
+             </div>
+        </section>
+
+        <!-- Verb-bibliotek Seksjon (Skjult som standard) -->
+        <section id="seccion-biblioteca" class="app-section" style="display: none;">
+            <h2>Biblioteca de Verbos</h2>
+            <p>Her finner du en oversikt over verbene i appen og deres bøyninger i de viktigste tidene.</p>
+            <div id="verb-list">
+                <!-- Verb-tabeller genereres her av JavaScript -->
+            </div>
+        </section>
+
+        <!-- Grammatikk Seksjon (Skjult som standard) -->
+        <section id="seccion-gramatica" class="app-section" style="display: none;">
+            <h2>Gramática Rápida</h2>
+            <p>Enkel oversikt over hvordan tidene lages.</p>
+            <div id="grammar-content">
+                <!-- Grammatikkinnhold genereres/legges inn her -->
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>Tips: Husk aksenter! De kan endre betydningen eller uttalen. F.eks. tú (du) vs. tu (din).</p>
+    </footer>
+
+    <!-- <script src="verbos.js"></script> --> <!-- Eventuelt legg verb-data i egen fil -->
+    <script src="script.js"></script>
+</body>
+</html>
